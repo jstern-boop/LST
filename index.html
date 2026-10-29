@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Little Sugar Tot Photography: newborn, maternity, sitter, cake smash and family photography by Kay in Victoria, Australia.">
+<title>Little Sugar Tot Photography</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: a sugar-paper studio album — sticky header, single reading column with photo-tile grids, page footer index of all 30 pages */
+:root{
+  --paper:#f8f5f8; --paper-2:#efe7ef; --ink:#2d2231; --ink-soft:#6b5d70;
+  --berry:#b8557a; --berry-ink:#fff; --mint:#9cc3b8; --line:#ddd1dd;
+  --tile-a:#ecd9e3; --tile-b:#d9e8e3; --tile-c:#efe2d6; --tile-d:#dfdcef;
+  --f-display:"Young Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1e1821; --paper-2:#2a222e; --ink:#f1e9f2; --ink-soft:#b9a9bd;
+  --berry:#e48aac; --berry-ink:#2a1420; --mint:#7fae9f; --line:#3b3040;
+  --tile-a:#3a2b35; --tile-b:#263632; --tile-c:#3a3128; --tile-d:#2e2b3d; color-scheme:dark}
+:root[data-theme="dark"]{
+  --paper:#1e1821; --paper-2:#2a222e; --ink:#f1e9f2; --ink-soft:#b9a9bd;
+  --berry:#e48aac; --berry-ink:#2a1420; --mint:#7fae9f; --line:#3b3040;
+  --tile-a:#3a2b35; --tile-b:#263632; --tile-c:#3a3128; --tile-d:#2e2b3d; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--f-body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--berry)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--berry);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,5.5vw,3.6rem)}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem)}
+h3{font-size:1.25rem}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 .78rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--berry)}
+.mono{font-family:var(--f-mono)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{font:400 1.2rem/1 var(--f-display)}
+.logo small{display:block;font:500 .66rem/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.cube{width:30px;height:30px;border-radius:7px;background:var(--berry);position:relative;transform:rotate(-8deg);flex:none}
+.cube::after{content:"";position:absolute;inset:6px;border:2px solid var(--paper);border-radius:3px}
+nav.main{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 12px;border-radius:999px}
+nav.main a:hover,nav.main a.on{background:var(--paper-2)}
+nav.main a.cta{background:var(--berry);color:var(--berry-ink)}
+.menu-btn{display:none;font:600 .9rem var(--f-body);background:var(--paper-2);color:var(--ink);border:0;border-radius:999px;padding:9px 16px;cursor:pointer}
+@media (max-width:820px){
+  .menu-btn{display:block}
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  nav.main.open{display:flex}
+}
+
+/* page */
+main{padding-block:40px 64px;display:grid;gap:56px}
+.crumb{font:400 .8rem var(--f-mono);color:var(--ink-soft)}
+.crumb a{color:var(--ink-soft)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero > div{display:grid;gap:18px;min-width:0}
+.lede{font-size:1.15rem;color:var(--ink-soft)}
+@media (max-width:760px){.hero{grid-template-columns:1fr}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;border:2px solid var(--berry);color:var(--berry);background:transparent;font-family:var(--f-body);font-size:1rem;cursor:pointer}
+.btn.fill{background:var(--berry);color:var(--berry-ink)}
+section{display:grid;gap:20px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.grid > *{min-width:0}
+.two{display:grid;gap:32px;grid-template-columns:1fr 1fr;align-items:start}
+.two > *{min-width:0;display:grid;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}
+
+/* photo placeholder tiles */
+.ph{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--tile-a);display:flex;align-items:flex-end}
+.ph.wide{aspect-ratio:3/2}.ph.sq{aspect-ratio:1}
+.ph.b{background:var(--tile-b)}.ph.c{background:var(--tile-c)}.ph.d{background:var(--tile-d)}
+.ph svg{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.ph span{position:relative;margin:12px;font:400 .72rem/1.35 var(--f-mono);color:var(--ink-soft);background:var(--paper);padding:5px 9px;border-radius:8px}
+
+.service{display:grid;gap:12px;text-decoration:none;color:var(--ink)}
+.service:hover h3{color:var(--berry)}
+.service p{color:var(--ink-soft);font-size:.95rem}
+.price{font:500 .9rem var(--f-mono);color:var(--berry)}
+.panel{background:var(--paper-2);border-radius:22px;padding:28px;display:grid;gap:14px}
+.panel ul,.list{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:2px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.facts div{background:var(--paper);padding:16px 18px;display:grid;gap:4px}
+.facts dt{font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.facts dd{margin:0;font:400 1.15rem var(--f-display)}
+.steps{counter-reset:s;display:grid;gap:18px;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px}
+.steps li::before{content:counter(s);font:400 1.1rem var(--f-display);width:40px;height:40px;border-radius:50%;background:var(--mint);color:var(--ink);display:grid;place-items:center}
+.steps li div{display:grid;gap:4px;min-width:0}
+.steps li p{color:var(--ink-soft)}
+details{border-top:1px solid var(--line);padding-block:14px}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700}
+details p{margin-top:8px;color:var(--ink-soft)}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:460px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{font-size:.88rem;color:var(--ink-soft)}
+.contact-line{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact-line code{font:500 1rem var(--f-mono);user-select:all;background:var(--paper-2);padding:6px 10px;border-radius:8px}
+.copy{font:600 .8rem var(--f-body);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+input,select,textarea{font:400 1rem var(--f-body);padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}
+#formResult{white-space:pre-wrap;font:400 .9rem/1.5 var(--f-mono);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+.band{background:var(--paper-2);border-radius:28px;padding:36px 28px;display:grid;gap:16px;justify-items:start}
+
+footer{border-top:1px solid var(--line);padding-block:40px;background:var(--paper-2)}
+.fgrid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.fgrid h4{margin:0 0 8px;font:500 .72rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.fgrid a{color:var(--ink);text-decoration:none;font-size:.92rem}
+.fgrid a:hover{color:var(--berry)}
+.fine{margin-top:28px;font-size:.82rem;color:var(--ink-soft)}
+@media (prefers-reduced-motion:no-preference){main{animation:in .35s ease both}@keyframes in{from{transform:translateY(6px)}to{transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home"><span class="cube" aria-hidden="true"></span><span><b>Little Sugar Tot</b><small>Photography · Victoria</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav class="main" id="mainNav">
+      <a href="#sessions">Sessions</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About Kay</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta" href="#contact">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid" id="footIndex"></div>
+    <p class="fine">Little Sugar Tot Photography · Kay · Victoria, Australia · +61 483 030 000 · littlesugartot@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+const PHONE="+61 483 030 000", EMAIL="littlesugartot@gmail.com";
+
+/* soft decorative motif per tile: sugar cubes / bubbles */
+function motif(seed){let s=seed*9301%233280,o="";for(let i=0;i<7;i++){s=(s*9301+49297)%233280;const x=s/233280*100;s=(s*9301+49297)%233280;const y=s/233280*80;s=(s*9301+49297)%233280;const r=4+s/233280*14;
+o+=i%2?`<rect x="${x}" y="${y}" width="${r}" height="${r}" rx="${r/4}" fill="none" stroke="currentColor" stroke-width=".6" transform="rotate(${(i*23)%40-20} ${x} ${y})"/>`:`<circle cx="${x}" cy="${y}" r="${r/2}" fill="none" stroke="currentColor" stroke-width=".6"/>`}
+return `<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="color:var(--ink-soft)">${o}</svg>`}
+let tileN=0;
+function ph(label,cls=""){tileN++;const t=["","b","c","d"][tileN%4];return `<div class="ph ${t} ${cls}" role="img" aria-label="Photo placeholder: ${label}">${motif(tileN)}<span>${label}</span></div>`}
+const crumb=(...p)=>`<div class="crumb"><a href="#home">Home</a>${p.map(x=>x[1]?` / <a href="#${x[1]}">${x[0]}</a>`:` / ${x[0]}`).join("")}</div>`;
+const cta=(t="Ready to save a date?",b="Tell Kay your due date or your little one's age, and she'll come back to you with available dates.")=>`<section class="band"><span class="eyebrow">Bookings</span><h2>${t}</h2><p>${b}</p><div class="btns"><a class="btn fill" href="#contact">Make an enquiry</a><a class="btn" href="#booking">How booking works</a></div></section>`;
+const facts=a=>`<dl class="facts">${a.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
+const ul=a=>`<ul class="list">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+const steps=a=>`<ol class="steps">${a.map(([h,p])=>`<li><div><h3>${h}</h3><p>${p}</p></div></li>`).join("")}</ol>`;
+const qa=a=>`<div>${a.map(([q,x])=>`<details><summary>${q}</summary><p>${x}</p></details>`).join("")}</div>`;
+const copyLine=(lbl,val)=>`<div class="contact-line"><strong>${lbl}</strong><code>${val}</code><button class="copy" data-copy="${val}">Copy</button></div>`;
+
+const SERVICES=[
+ ["newborn","Newborn","Styled sessions in the first weeks, while babies are sleepy and curly.","From $449"],
+ ["maternity","Maternity","Bump portraits, solo or with your partner and children.","Enquire"],
+ ["sitter","Sitter milestone","The sitting-up stage, usually around 6 to 9 months.","Enquire"],
+ ["cake-smash","Cake smash","First-birthday set, cake and outfit, plus 15 edited images.","$499"],
+ ["family","Family","Relaxed portraits of everyone together, siblings and grandparents welcome.","Enquire"],
+];
+const svcGrid=(skip)=>`<div class="grid">${SERVICES.filter(s=>s[0]!==skip).map(([id,n,d,p])=>`<a class="service" href="#${id}">${ph(n+" session")}<h3>${n}</h3><p>${d}</p><span class="price">${p}</span></a>`).join("")}</div>`;
+
+function servicePage(o){return `${crumb(["Sessions","sessions"],[o.name])}
+<div class="hero"><div><span class="eyebrow">${o.eyebrow}</span><h1>${o.title}</h1><p class="lede">${o.lede}</p><div class="btns"><a class="btn fill" href="#contact">Enquire about ${o.name.toLowerCase()}</a>${o.more?`<a class="btn" href="#${o.more[1]}">${o.more[0]}</a>`:""}</div></div>${ph(o.photo)}</div>
+${facts(o.facts)}
+<section class="two"><div><h2>${o.h2}</h2>${o.body.map(p=>`<p>${p}</p>`).join("")}</div><div class="panel"><h3>${o.listTitle}</h3>${ul(o.list)}</div></section>
+<section><h2>From recent ${o.name.toLowerCase()} sessions</h2><div class="grid">${o.shots.map(s=>ph(s,"sq")).join("")}</div><p class="note">Photo placeholders. Swap in images from Kay's portfolio.</p></section>
+${cta()}`}
+
+function galleryPage(id,name,shots,intro){return `${crumb(["Gallery","gallery"],[name])}
+<section><span class="eyebrow">Gallery</span><h1>${name}</h1><p class="lede">${intro}</p></section>
+<div class="grid">${shots.map((s,i)=>ph(s,i%3==0?"":"sq")).join("")}</div>
+<p class="note">Photo placeholders. Replace each tile with a finished image.</p>
+<section><h2>Other galleries</h2><div class="btns">${[["Newborn","gallery-newborn"],["Maternity","gallery-maternity"],["Cake smash","gallery-cake-smash"],["Family &amp; sitter","gallery-family"]].filter(g=>g[1]!==id).map(g=>`<a class="btn" href="#${g[1]}">${g[0]}</a>`).join("")}</div></section>
+${cta()}`}
+
+function areaPage(id,suburb,drive,extra){return `${crumb(["Areas we serve","areas"],[suburb])}
+<div class="hero"><div><span class="eyebrow">Serving ${suburb}</span><h1>Newborn &amp; family photography for ${suburb} families</h1><p class="lede">Little Sugar Tot works with families from ${suburb} and across Melbourne's south-east. ${extra}</p><div class="btns"><a class="btn fill" href="#contact">Check dates</a><a class="btn" href="#pricing">See pricing</a></div></div>${ph("Family portrait, "+suburb+" client")}</div>
+<section class="two"><div><h2>Sessions for ${suburb} families</h2><p>Every session type is open to ${suburb} families: newborn, maternity, sitter milestone, cake smash and family portraits. ${drive}</p><p>When you enquire, mention you're in ${suburb} and Kay will confirm the session location and any travel details with your booking.</p></div><div class="panel"><h3>Popular with local parents</h3>${ul(["<a href='#newborn'>Newborn sessions</a> from $449","<a href='#cake-smash'>Cake smash</a> at $499 with 15 edited images","<a href='#maternity'>Maternity</a> from around 30–34 weeks","<a href='#family'>Family portraits</a> for every stage"])}</div></section>
+<section><h2>Other areas</h2><div class="btns">${[["Cranbourne North","cranbourne-north"],["Cranbourne South","cranbourne-south"],["Pakenham","pakenham"]].filter(a=>a[1]!==id).map(a=>`<a class="btn" href="#${a[1]}">${a[0]}</a>`).join("")}</div></section>
+${cta()}`}
+
+const PAGES={
+home:{t:"Home",g:"Studio",r:()=>`
+<div class="hero"><div><span class="eyebrow">Newborn · Maternity · Sitter · Cake smash · Family</span><h1>Tiny toes, first smiles, and the whole sweet beginning.</h1><p class="lede">Little Sugar Tot is Kay's photography studio in Victoria, Australia. She photographs newborns, bumps, sitters, first birthdays and families across Cranbourne North, Cranbourne South, Pakenham and nearby suburbs.</p><div class="btns"><a class="btn fill" href="#contact">Enquire about a date</a><a class="btn" href="#sessions">Explore sessions</a></div></div>${ph("Newborn curled on a cream wrap, hero image")}</div>
+${facts([["Newborn sessions","from $449"],["Cake smash","$499"],["Edited images, cake smash","15"],["Based in","Victoria, AU"]])}
+<section><span class="eyebrow">Sessions</span><h2>Photography for every early milestone</h2>${svcGrid()}</section>
+<section class="two"><div><span class="eyebrow">Meet Kay</span><h2>One photographer, start to finish</h2><p>Kay plans your styling, runs your session and edits every image herself. Babies set the pace, so sessions include time for feeds, cuddles and settling.</p><a class="btn" href="#about">More about Kay</a></div>${ph("Kay in the studio with a wrapped newborn","wide")}</section>
+<section><span class="eyebrow">Planning ahead</span><h2>Booking a newborn session?</h2><p>Enquire during your pregnancy. Kay pencils in your due date, then confirms the exact day once your baby arrives, usually within the first two weeks.</p><div class="btns"><a class="btn" href="#prepare-newborn">Prepare for your newborn session</a><a class="btn" href="#newborn-safety">How Kay keeps babies safe</a></div></section>
+${cta()}`},
+
+about:{t:"About Kay",g:"Studio",r:()=>`${crumb(["About Kay"])}
+<div class="hero"><div><span class="eyebrow">About</span><h1>Hi, I'm Kay.</h1><p class="lede">I run Little Sugar Tot Photography from Victoria, photographing families as they grow, from the bump to the first birthday cake and beyond.</p></div>${ph("Portrait of Kay with her camera")}</div>
+<section class="two"><div><h2>Why "Little Sugar Tot"</h2><p>The first year goes quickly. A newborn's curled-up shape lasts only a couple of weeks, and the wobbly sitting stage is gone in a few months. I started Little Sugar Tot to help parents keep those stages before they pass.</p><p>Every session is planned around your baby. I keep the studio warm, the pace slow and the styling soft, so parents can relax and watch.</p></div><div class="panel"><h3>What you can expect from me</h3>${ul(["One photographer from enquiry to final gallery","Styling, outfits and props chosen with you","Patience for feeds, nappy changes and settling","Hand-edited images, delivered digitally"])}</div></section>
+<section><h2>Find me online</h2><p>Recent sessions go up on Instagram and Facebook under <strong>Little Sugar Tot Photography</strong>.</p><div class="btns"><a class="btn" href="#contact">Get in touch</a></div></section>
+${cta("Let's plan your session")}`},
+
+sessions:{t:"All sessions",g:"Sessions",r:()=>`${crumb(["Sessions"])}
+<section><span class="eyebrow">Sessions</span><h1>Choose your session</h1><p class="lede">Five session types follow your family through the first years. Most families come back for more than one.</p></section>
+${svcGrid()}
+<section><h2>A typical first year with Little Sugar Tot</h2><div class="table-wrap"><table><thead><tr><th>Stage</th><th>Usual timing</th><th>Session</th></tr></thead><tbody>
+<tr><td>Bump</td><td class="n">30–34 weeks</td><td><a href="#maternity">Maternity</a></td></tr>
+<tr><td>Newborn</td><td class="n">5–14 days</td><td><a href="#newborn">Newborn</a></td></tr>
+<tr><td>Sitting up</td><td class="n">6–9 months</td><td><a href="#sitter">Sitter milestone</a></td></tr>
+<tr><td>First birthday</td><td class="n">11–13 months</td><td><a href="#cake-smash">Cake smash</a></td></tr>
+<tr><td>Anytime</td><td class="n">Any age</td><td><a href="#family">Family</a></td></tr></tbody></table></div>
+<p class="note">Timings are a guide. Every baby develops at their own pace.</p></section>
+${cta()}`},
+
+newborn:{t:"Newborn",g:"Sessions",r:()=>servicePage({name:"Newborn",eyebrow:"Newborn sessions · from $449",title:"Styled newborn portraits in the first sleepy weeks",lede:"Wraps, soft textures and simple sets, photographed while your baby is still curled and settled.",photo:"Sleeping newborn in a knitted bonnet",more:["Newborn packages","newborn-packages"],
+facts:[["Starting price","$449"],["Best age","5–14 days"],["Allow","3–4 hours"],["Includes","Styling &amp; props"]],
+h2:"How a newborn session runs",body:["Sessions are baby-led. Kay begins with your little one fed and drowsy, works through wrapped and posed setups, and pauses whenever baby needs a feed or a cuddle.","Parent and sibling images are added near the end, while baby is still settled. You're welcome to sit back, have a cuppa and watch."],
+listTitle:"Included in every newborn session",list:["Studio time in a warm, prepared space","Wraps, bonnets, backdrops and props","Parent and sibling images on request","Professionally edited digital images","Online gallery for viewing and download"],
+shots:["Wrapped newborn on a cream bean bag","Tiny feet close-up","Parents' hands around baby","Big sister kissing baby's head"]})},
+
+"newborn-packages":{t:"Newborn packages",g:"Pricing",r:()=>`${crumb(["Pricing","pricing"],["Newborn packages"])}
+<section><span class="eyebrow">Newborn packages</span><h1>Newborn packages from $449</h1><p class="lede">Every newborn package includes a fully styled studio session. Packages differ in how many images and setups are included.</p></section>
+<div class="grid">
+<div class="panel"><span class="eyebrow">Starting package</span><h2 class="mono">$449</h2><p>A styled newborn session with Kay's curated wraps and setups. Ideal for families wanting a focused set of baby portraits.</p></div>
+<div class="panel"><span class="eyebrow">Larger packages</span><h2>Enquire</h2><p>More setups, family and sibling images, and a larger digital collection. Ask Kay for current package options.</p></div>
+</div>
+<section class="two"><div><h2>Every package includes</h2>${ul(["Styling, wraps, props and outfits","A warm studio set up before you arrive","Time for feeds and settling","Hand-edited digital images"])}</div><div><h2>Good to know</h2>${ul(["Book while pregnant to hold your due-date window","Best between 5 and 14 days old","Older babies are welcome; posing is adjusted to suit","<a href='#booking-policy'>Deposits and rescheduling</a>"])}</div></section>
+${cta("Hold your due date")}`},
+
+maternity:{t:"Maternity",g:"Sessions",r:()=>servicePage({name:"Maternity",eyebrow:"Maternity sessions",title:"Your bump, photographed with care",lede:"Portraits of the last weeks of pregnancy, on your own, with your partner, or with the children who are about to become big siblings.",photo:"Silhouette of a bump in soft window light",more:["Preparing for maternity","prepare-maternity"],
+facts:[["Best timing","30–34 weeks"],["Allow","About 1 hour"],["Who","Solo, couples, family"],["Pricing","Enquire"]],
+h2:"Comfortable, unhurried bump portraits",body:["Kay guides every pose, so you don't need any modelling experience. Breaks are built in, with seating and water close by.","Many parents book maternity and newborn together, so both sessions share one plan and one look."],
+listTitle:"Session details",list:["Posing guidance throughout","Partner and children welcome","Gown and outfit advice beforehand","Edited digital images","Ask about pairing with a newborn session"],
+shots:["Hands resting on bump","Couple portrait, side profile","Toddler kissing mum's bump","Flowing gown, studio backdrop"]})},
+
+sitter:{t:"Sitter milestone",g:"Sessions",r:()=>servicePage({name:"Sitter",eyebrow:"Sitter milestone sessions",title:"Sitting up, all smiles",lede:"Once babies can sit on their own, their personality comes through. This session captures the gummy grins, chubby cheeks and curious looks.",photo:"Baby sitting up and laughing in a romper",
+facts:[["Best age","6–9 months"],["Key sign","Sits unassisted"],["Allow","About 1 hour"],["Pricing","Enquire"]],
+h2:"Why the sitter stage is worth photographing",body:["Between newborn and first birthday, babies change quickly. Sitting up is the stage when they're steady enough to pose and still small enough to fit in a basket.","Kay uses simple setups, bright colours or soft neutrals, and lots of peekaboo to keep the giggles coming."],
+listTitle:"Bring along",list:["Two or three outfits you love","A favourite toy or comforter","Snacks and a bottle, if used","A spare nappy and change of clothes"],
+shots:["Baby in a basket, looking up","Close-up of tiny teeth grin","Baby with a wooden toy","Sitter with parents, family set"]})},
+
+"cake-smash":{t:"Cake smash",g:"Sessions",r:()=>servicePage({name:"Cake smash",eyebrow:"Cake smash · $499",title:"One birthday, one cake, plenty of frosting",lede:"A styled first-birthday set, a cake made for smashing, and a splash at the end. Your little one gets to make the mess.",photo:"One-year-old with frosting on both hands",more:["Prepare for cake smash","prepare-cake-smash"],
+facts:[["Price","$499"],["Edited images","15"],["Best age","11–13 months"],["Includes","Cake &amp; outfit options"]],
+h2:"What's in the $499 cake smash",body:["The session includes studio time, the full set-up, outfit and cake options, and 15 edited digital images.","Kay starts with clean portraits before the cake comes out, then lets your little one explore. Most sessions finish with a splash clean-up."],
+listTitle:"Included",list:["Studio time","Themed set-up and styling","Outfit options","Cake options","15 edited digital images"],
+shots:["Cake smash set with balloons","First touch of the cake","Frosting-covered grin","Splash clean-up in a tub"]})},
+
+
+
+family:{t:"Family",g:"Sessions",r:()=>servicePage({name:"Family",eyebrow:"Family portraits",title:"Everyone in the picture",lede:"Relaxed portraits of the whole family, from new parents to grandparents. Kay keeps it playful so children stay happy and parents end up in the photos too.",photo:"Family of four laughing together on a backdrop",more:["What to wear","what-to-wear"],
+facts:[["Who","Any family size"],["Ages","Newborn to grandparents"],["Allow","About 1 hour"],["Pricing","Enquire"]],
+h2:"Photos you'll want on the wall",body:["Family sessions mix posed group images with natural moments: cuddles, tickles and children running between parents.","Let Kay know the number of people and ages when you enquire, so she can plan the set."],
+listTitle:"Ideas for your session",list:["Pair with a sitter or cake smash session","Include grandparents for a multi-generation image","Coordinate outfits in two or three colours","Bring a favourite toy for younger children"],
+shots:["Parents swinging toddler","Siblings hugging","Three generations portrait","Dad with baby on his shoulders"]})},
+
+pricing:{t:"Pricing",g:"Pricing",r:()=>`${crumb(["Pricing"])}
+<section><span class="eyebrow">Pricing</span><h1>Session pricing</h1><p class="lede">Clear starting prices for the two most-booked sessions. For other sessions, Kay will send current pricing when you enquire.</p></section>
+<div class="table-wrap"><table><thead><tr><th>Session</th><th>Price</th><th>What's included</th></tr></thead><tbody>
+<tr><td><a href="#newborn">Newborn</a></td><td class="n">from $449</td><td>Styled studio session with wraps, props and edited digital images</td></tr>
+<tr><td><a href="#cake-smash">Cake smash</a></td><td class="n">$499</td><td>Studio time, set-up, outfit and cake options, 15 edited digital images</td></tr>
+<tr><td><a href="#maternity">Maternity</a></td><td class="n">Enquire</td><td>Guided bump portraits, partner and children welcome</td></tr>
+<tr><td><a href="#sitter">Sitter milestone</a></td><td class="n">Enquire</td><td>Milestone portraits at 6–9 months</td></tr>
+<tr><td><a href="#family">Family</a></td><td class="n">Enquire</td><td>Group and candid family portraits</td></tr></tbody></table></div>
+<p class="note">Prices in Australian dollars. Confirm current pricing with Kay at booking.</p>
+<div class="btns"><a class="btn" href="#newborn-packages">Newborn packages</a><a class="btn" href="#gift-vouchers">Gift vouchers</a></div>
+${cta()}`},
+
+gallery:{t:"Gallery",g:"Gallery",r:()=>`${crumb(["Gallery"])}
+<section><span class="eyebrow">Gallery</span><h1>Portfolio</h1><p class="lede">Browse by session type to see the styling, colours and poses Kay works with.</p></section>
+<div class="grid">${[["Newborn","gallery-newborn","Wrapped baby on a neutral blanket"],["Maternity","gallery-maternity","Bump portrait in a flowing gown"],["Cake smash","gallery-cake-smash","Birthday set with pastel cake"],["Family &amp; sitter","gallery-family","Sitter baby with parents"]].map(([n,id,l])=>`<a class="service" href="#${id}">${ph(l)}<h3>${n}</h3><span class="price">View gallery →</span></a>`).join("")}</div>
+<p class="note">See new work first on Instagram and Facebook: Little Sugar Tot Photography.</p>`},
+
+"gallery-newborn":{t:"Newborn gallery",g:"Gallery",r:()=>galleryPage("gallery-newborn","Newborn gallery",["Baby asleep in a wooden bowl","Wrapped in dusty pink","Tiny hand on dad's finger","Froggy pose (composite)","Bonnet and lace close-up","Mum and baby, skin to skin","Twins side by side","Baby on a cloud bean bag","Big brother gentle hold"],"Sleepy, curled portraits from the first two weeks.")},
+"gallery-maternity":{t:"Maternity gallery",g:"Gallery",r:()=>galleryPage("gallery-maternity","Maternity gallery",["Profile silhouette","Hands forming a heart over bump","Partner kneeling, kissing bump","Sheer gown in window light","Toddler listening to bump","Holding a tiny pair of shoes"],"Soft, guided portraits from the third trimester.")},
+"gallery-cake-smash":{t:"Cake smash gallery",g:"Gallery",r:()=>galleryPage("gallery-cake-smash","Cake smash gallery",["Pastel balloon garland set","First taste","Fistful of frosting","Number one topper","Rainbow theme","Bubble bath clean-up"],"First birthdays, frosting and the splash that follows.")},
+"gallery-family":{t:"Family & sitter gallery",g:"Gallery",r:()=>galleryPage("gallery-family","Family &amp; sitter gallery",["Sitter in a woven basket","Peekaboo giggles","Family on a linen backdrop","Siblings forehead to forehead","Grandparents with baby","Toddler on dad's shoulders"],"Sitting-up milestones and everyone together.")},
+
+
+
+"newborn-safety":{t:"Newborn safety",g:"Guides",r:()=>`${crumb(["Guides","guides"],["Newborn safety"])}
+<section><span class="eyebrow">Newborn safety</span><h1>Your baby's comfort and safety come first</h1><p class="lede">Every pose and setup is chosen around your baby's comfort. No image is worth a baby's distress.</p></section>
+${steps([["Baby-led pacing","Kay follows your baby's cues. Feeds, cuddles and breaks happen whenever they're needed."],["A warm room","The studio is warmed for unwrapped images, then adjusted once baby is wrapped."],["Hands nearby","For any lifted or propped pose, a hand is kept close, and some images are composites made from two safely spotted frames."],["Clean, washed props","Wraps and fabrics are washed between sessions, and hands are washed or sanitised before handling baby."],["Parents always welcome","You're in the room the whole time and can ask for a pose to be skipped."]])}
+<p class="note">If your baby has any health concerns or was born early, mention it when you book so the session can be planned around them.</p>
+${cta()}`},
+
+"what-to-wear":{t:"What to wear",g:"Guides",r:()=>`${crumb(["Guides","guides"],["What to wear"])}
+<section><span class="eyebrow">Styling guide</span><h1>What to wear to your session</h1><p class="lede">Simple outfits photograph best. Here's a guide for parents, siblings and little ones.</p></section>
+<div class="grid">
+<div class="panel"><h3>Choose a palette</h3><p>Pick two or three soft colours that sit well together, such as cream, sage and dusty pink. Avoid all matching.</p></div>
+<div class="panel"><h3>Skip big logos</h3><p>Large prints, logos and slogans draw the eye away from faces.</p></div>
+<div class="panel"><h3>Texture over pattern</h3><p>Knits, linen and lace add interest without busy patterns.</p></div>
+<div class="panel"><h3>Comfortable fit</h3><p>For newborn sessions, parents may hold baby skin to skin. A plain, darker top works well.</p></div>
+</div>
+<section><h2>From Kay's wardrobe</h2><p>Newborn, sitter and cake smash sessions include outfit options, so your little one doesn't need anything special. You're welcome to bring a sentimental piece too.</p></section>
+${cta()}`},
+
+"prepare-newborn":{t:"Preparing for newborn",g:"Guides",r:()=>`${crumb(["Guides","guides"],["Preparing for newborn"])}
+<section><span class="eyebrow">Newborn guide</span><h1>Preparing for your newborn session</h1><p class="lede">A few small steps help your baby stay settled and sleepy.</p></section>
+${steps([["Keep baby awake before you leave","Try to keep baby awake for an hour or so before the session, so they're ready to sleep in the studio."],["Feed on arrival","Plan a full feed when you arrive. A warm, full baby sleeps best."],["Dress in easy layers","Choose a front-opening outfit so baby can be undressed without being woken."],["Pack the essentials","Bring nappies, wipes, a dummy if you use one, spare formula or expressed milk, and a change of clothes for you."],["Allow plenty of time","Newborn sessions take a few hours. Don't book anything straight after."]])}
+${cta()}`},
+
+"prepare-cake-smash":{t:"Preparing for cake smash",g:"Guides",r:()=>`${crumb(["Guides","guides"],["Preparing for cake smash"])}
+<section><span class="eyebrow">Cake smash guide</span><h1>Getting ready for a cake smash</h1><p class="lede">A rested, fed one-year-old makes the best cake smasher.</p></section>
+${steps([["Book around naps","Choose a time just after your little one usually wakes up."],["Light snack beforehand","A small snack keeps moods steady without spoiling interest in the cake."],["Bring a towel and spare clothes","Frosting gets everywhere. A full change for baby is a good idea."],["Let them lead","Some babies dive in, some poke at it carefully. Both make great photos."],["Mention allergies early","Share any allergies at booking so cake options can be planned."]])}
+${cta()}`},
+
+"prepare-maternity":{t:"Preparing for maternity",g:"Guides",r:()=>`${crumb(["Guides","guides"],["Preparing for maternity"])}
+<section><span class="eyebrow">Maternity guide</span><h1>Preparing for your maternity session</h1><p class="lede">Book for around 30 to 34 weeks, when your bump is round and you're usually still comfortable.</p></section>
+${steps([["Choose outfits that show your shape","Fitted dresses, gowns or a fitted knit all show the bump well."],["Plan family outfits together","If partner or children join, coordinate colours rather than matching exactly."],["Bring meaningful items","Ultrasound prints, tiny shoes or a name sign make lovely details."],["Rest and hydrate","Come rested and bring water. Breaks are always available."]])}
+${cta()}`},
+
+guides:{t:"Guides",g:"Guides",r:()=>`${crumb(["Guides"])}
+<section><span class="eyebrow">Guides</span><h1>Guides for parents</h1><p class="lede">Practical advice for getting the most from your session.</p></section>
+<div class="grid">${[["Preparing for newborn","prepare-newborn","Help your baby stay sleepy and settled."],["Preparing for cake smash","prepare-cake-smash","Timing, snacks and spare clothes."],["Preparing for maternity","prepare-maternity","When to book and what to wear."],["What to wear","what-to-wear","Colour and outfit tips for everyone."],["Newborn safety","newborn-safety","How Kay keeps babies comfortable."]].map(([n,id,d])=>`<a class="service panel" href="#${id}"><h3>${n}</h3><p>${d}</p></a>`).join("")}</div>`},
+
+
+
+booking:{t:"How booking works",g:"Book",r:()=>`${crumb(["How booking works"])}
+<section><span class="eyebrow">Booking</span><h1>How to book</h1><p class="lede">Booking takes a few messages. Here's the process.</p></section>
+${steps([["Send an enquiry","Use the enquiry form, email or call. Include your due date or your child's age."],["Get dates and pricing","Kay replies with available dates and current pricing for your session."],["Confirm your booking","Your date is held once your booking is confirmed. See the booking policy for details."],["Plan the details","Kay sends prep guides and talks through styling, outfits or cake options."],["Session day","Come along, relax and let Kay take care of the rest."]])}
+<div class="btns"><a class="btn fill" href="#contact">Start your enquiry</a><a class="btn" href="#booking-policy">Booking policy</a></div>`},
+
+faq:{t:"FAQ",g:"Book",r:()=>`${crumb(["FAQ"])}
+<section><span class="eyebrow">FAQ</span><h1>Questions parents ask</h1></section>
+${qa([["When should I book a newborn session?","During pregnancy, ideally in the second trimester. Kay holds your due-date window and confirms the exact day after your baby is born."],["What's the best age for newborn photos?","Usually between 5 and 14 days old, when babies are sleepy and curl easily. Older babies are still welcome."],["How much does a newborn session cost?","Newborn sessions start from $449. Larger packages are available on request."],["What does the cake smash include?","The $499 cake smash includes studio time, set-up, outfit and cake options, and 15 edited digital images."],["Do I need to bring outfits?","Not for newborn, sitter or cake smash sessions. Outfit options are provided. Parents and siblings bring their own clothes."],["Can siblings and parents be in the photos?","Yes. Let Kay know who's coming so she can plan the setups."],["Where are you located?","In Victoria, Australia, serving Cranbourne North, Cranbourne South, Pakenham and nearby suburbs. The address is shared when you book."],["How do I receive my images?","Edited images are delivered digitally through an online gallery."],["What if my baby comes early or late?","That's expected. Your date is adjusted around baby's arrival."]])}
+${cta("Still have a question?","Send Kay a message and she'll get back to you.")}`},
+
+"booking-policy":{t:"Booking policy",g:"Book",r:()=>`${crumb(["Booking policy"])}
+<section><span class="eyebrow">Policies</span><h1>Booking policy</h1><p class="lede">A plain-English summary of how bookings work. Kay confirms the full terms with your booking.</p></section>
+<section class="two"><div><h2>Securing your date</h2><p>Your session date is held once your booking is confirmed with Kay. Details about any deposit are provided at booking.</p><h2>Rescheduling</h2><p>Babies and toddlers get sick. If your child is unwell on the day, contact Kay as early as possible to arrange a new date.</p></div><div><h2>Newborn timing</h2><p>Newborn bookings are held for your due-date window and moved to suit baby's actual arrival. Please message Kay once your baby is born.</p><h2>Image delivery</h2><p>Edited images are delivered digitally through an online gallery. Turnaround times are confirmed at booking.</p></div></section>
+<p class="note">Draft policy summary. Kay should review and update this page with her final terms.</p>`},
+
+"gift-vouchers":{t:"Gift vouchers",g:"Pricing",r:()=>`${crumb(["Pricing","pricing"],["Gift vouchers"])}
+<div class="hero"><div><span class="eyebrow">Gift vouchers</span><h1>Give a session as a gift</h1><p class="lede">A thoughtful present for a baby shower, a first birthday or new grandparents. Vouchers can be arranged for any session or a set amount.</p><div class="btns"><a class="btn fill" href="#contact">Ask about a voucher</a></div></div>${ph("Gift voucher card tied with ribbon")}</div>
+<section class="grid"><div class="panel"><h3>Newborn session voucher</h3><p class="price">from $449</p><p>A popular baby shower gift for expecting parents.</p></div><div class="panel"><h3>Cake smash voucher</h3><p class="price">$499</p><p>Covers the full first-birthday session and 15 edited images.</p></div><div class="panel"><h3>Set amount</h3><p class="price">Your choice</p><p>Let the family choose the session that suits them.</p></div></section>`},
+
+areas:{t:"Areas we serve",g:"Areas",r:()=>`${crumb(["Areas we serve"])}
+<section><span class="eyebrow">Service areas</span><h1>Serving families across Melbourne's south-east</h1><p class="lede">Little Sugar Tot is based in Victoria and photographs families from these suburbs and nearby areas.</p></section>
+<div class="grid">${[["Cranbourne North","cranbourne-north"],["Cranbourne South","cranbourne-south"],["Pakenham","pakenham"]].map(([n,id])=>`<a class="service" href="#${id}">${ph(n+" family")}<h3>${n}</h3><span class="price">Sessions for ${n} families →</span></a>`).join("")}</div>
+<p>Not on the list? Get in touch anyway. Kay works with families from across the region.</p>
+${cta()}`},
+"cranbourne-north":{t:"Cranbourne North",g:"Areas",r:()=>areaPage("cranbourne-north","Cranbourne North","Newborn sessions are the most popular request from Cranbourne North parents.","")},
+"cranbourne-south":{t:"Cranbourne South",g:"Areas",r:()=>areaPage("cranbourne-south","Cranbourne South","Families often pair a maternity session with a newborn session.","")},
+pakenham:{t:"Pakenham",g:"Areas",r:()=>areaPage("pakenham","Pakenham","Cake smash and family sessions are booked often by Pakenham families.","")},
+
+
+
+contact:{t:"Contact & enquire",g:"Book",r:()=>`${crumb(["Contact"])}
+<section><span class="eyebrow">Contact</span><h1>Enquire about a session</h1><p class="lede">Call, email, or fill in the form to prepare your enquiry. Kay replies with dates and pricing.</p></section>
+<section class="two"><div>
+${copyLine("Phone",PHONE)}${copyLine("Email",EMAIL)}
+<p class="note">Social: Little Sugar Tot Photography on Instagram and Facebook.</p>
+<p class="note">Serving Cranbourne North, Cranbourne South, Pakenham and surrounding Victoria.</p>
+</div>
+<form id="enq" novalidate>
+<div class="row2"><label for="fName">Your name<input id="fName" required value=""></label><label for="fPhone">Phone<input id="fPhone" type="tel"></label></div>
+<label for="fSession">Session type<select id="fSession"><option>Newborn</option><option>Maternity</option><option>Sitter milestone</option><option>Cake smash</option><option>Family</option><option>Gift voucher</option></select></label>
+<div class="row2"><label for="fDate">Due date or child's birthday<input id="fDate" type="date"></label><label for="fSuburb">Suburb<input id="fSuburb" placeholder="e.g. Pakenham"></label></div>
+<label for="fMsg">Anything else Kay should know?<textarea id="fMsg" rows="4"></textarea></label>
+<button class="btn fill" type="submit">Prepare my enquiry</button>
+<div id="formOut" hidden><p class="note">Copy this message and send it to ${EMAIL}.</p><div id="formResult"></div><button type="button" class="copy" id="copyEnq">Copy message</button></div>
+</form></section>`},
+};
+
+const ORDER=Object.keys(PAGES);
+const GROUPS={};ORDER.forEach(k=>{(GROUPS[PAGES[k].g]=GROUPS[PAGES[k].g]||[]).push(k)});
+document.getElementById("footIndex").innerHTML=Object.entries(GROUPS).map(([g,ks])=>`<div><h4>${g}</h4><ul>${ks.map(k=>`<li><a href="#${k}">${PAGES[k].t}</a></li>`).join("")}</ul></div>`).join("");
+
+const app=document.getElementById("app"),nav=document.getElementById("mainNav"),mb=document.getElementById("menuBtn");
+function render(){const id=(location.hash||"#home").slice(1);const p=PAGES[id]||PAGES.home;tileN=0;app.innerHTML=p.r();
+document.title=(id==="home"||!PAGES[id])?"Little Sugar Tot Photography":p.t+" · Little Sugar Tot";
+nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+id));
+nav.classList.remove("open");mb.setAttribute("aria-expanded","false");window.scrollTo(0,0);bind()}
+function copy(text,btn){const done=()=>{const o=btn.textContent;btn.textContent="Copied";setTimeout(()=>btn.textContent=o,1500)};
+try{navigator.clipboard.writeText(text).then(done).catch(()=>sel(btn))}catch(e){sel(btn)}}
+function sel(btn){const el=btn.previousElementSibling;if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+function bind(){app.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copy(b.dataset.copy,b));
+const f=document.getElementById("enq");if(!f)return;
+f.onsubmit=e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();
+const msg=`Hi Kay,\n\nI'd like to enquire about a ${v("fSession").toLowerCase()} session.\nName: ${v("fName")||"-"}\nPhone: ${v("fPhone")||"-"}\nDue date / birthday: ${v("fDate")||"-"}\nSuburb: ${v("fSuburb")||"-"}\n\n${v("fMsg")}`;
+document.getElementById("formResult").textContent=msg;document.getElementById("formOut").hidden=false;
+document.getElementById("copyEnq").onclick=function(){try{navigator.clipboard.writeText(msg).then(()=>this.textContent="Copied").catch(()=>{})}catch(e){}}}}
+mb.onclick=()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+addEventListener("hashchange",render);render();
+</script>
+
+</body>
+</html>
